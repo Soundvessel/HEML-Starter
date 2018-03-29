@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Tools
+.idea
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+
+# Built
+node_modules
+*.log

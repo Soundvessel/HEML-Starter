@@ -1,0 +1,221 @@
+<heml>
+  <head>
+    <subject>@todo https://heml.io/docs/elements/meta#subject</subject>
+    <preview>@todo https://heml.io/docs/elements/meta#preview</preview>
+    <!-- @todo https://heml.io/docs/elements/meta#font but note many clients will ignore, setup system/common fonts as backups in your CSS font-family stack  -->
+    <base href="http://example.com" /><!-- @todo update per https://heml.io/docs/elements/meta#base -->
+    <!-- @todo Any other meta here https://heml.io/docs/elements/meta#subject -->
+    <style>
+
+      /* Layout */
+      
+      body {
+        /* https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/#what-to-do-today */
+        font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+        "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+
+        /* http://www.modularscale.com/?18&px&1.618 */
+        font-size: 18px;
+
+        background: #000000;
+        color: #333333;
+        line-height: 1.5;
+        padding-top: 36px;
+        padding-bottom: 36px;
+      }
+      
+      container {
+        background-color: #ffffff;
+        padding: 36px;
+        margin-bottom: 36px;
+      }
+
+      container.header {
+        padding: 0;
+        background-color: transparent;
+      }
+      
+      /*
+        Typography
+
+        Only h1, h2, p are setup with a modular scale but you can extend as needed.
+        http://www.modularscale.com/?18&px&1.618
+      */
+
+      h1, h2, h3, h4, h5, h6 {
+        color: black;
+        font-weight: bold;
+        line-height: 1.5;
+        margin-top: 0;
+      }
+      
+      h1 {
+        font-size: 47px;
+        margin-bottom: 23px;
+      }
+      
+      h2 {
+        font-size: 29px;
+        margin-bottom: 15px;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 18px;
+      }
+
+      ol, ul {
+        padding-left: 0;
+        margin-left: 40px;
+      }
+
+      /*
+        TIP: Create helper classes to apply repeated styles in HTML
+
+        Note you may need to repeat them in the mobile breakpoint and use !important (.margin-bottom-0 is an example).
+      */
+
+      .text-small {
+        font-size: 14px;
+      }
+
+      .text-red {
+        color: red;
+      }
+      
+      .text-center {
+        text-align: center;
+      }
+      
+      .text-right {
+        text-align: right;
+      }
+
+      .pad-20 {
+        padding: 20px;
+      }
+
+      .margin-bottom-0 {
+        margin-bottom: 0 !important;
+      }
+      
+      
+      /* Images  */
+      
+      .img-responsive {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /*
+        Tip from MailChimp: https://blog.mailchimp.com/mailchimp-and-media-queries/
+        Media Queries for mobile email are done in reverse and require !important.
+        Tighten everything up for screens down to 320px wide.
+      */
+
+      @media only screen and (max-width: 600px) {
+      
+        /* Layout */
+        
+        body {
+          padding-top: 20px !important;
+          padding-bottom: 20px !important;
+
+          /* http://www.modularscale.com/?14&px&1.6 */
+          font-size: 14px !important;
+        }
+      
+        container {
+          padding: 20px !important;
+          margin-bottom: 20px !important;
+        }
+
+        container.header {
+          padding: 0 !important;
+        }
+        
+        
+        /*
+          Typography
+
+          http://www.modularscale.com/?14&px&1.618
+        */
+
+        h1 {
+          font-size: 37px !important;
+          margin-bottom: 18px !important;
+        }
+
+        h2 {
+          font-size: 23px !important;
+          margin-bottom: 11px !important;
+        }
+
+        p {
+          margin-bottom: 14px !important;
+        }
+
+        /* Utilities */
+
+        .margin-bottom-0 {
+          margin-bottom: 0 !important;
+        }
+
+        .hide-on-mobile {
+          display: none !important;
+        }
+        
+        .text-center-mobile {
+          text-align: center !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <container class="header">
+      <center>
+        <a href="https://www.coplex.com">
+          <!-- 1200px wide banner will be 2x retina on desktop -->
+          <img class="img-responsive" src="http://via.placeholder.com/1200x300" width="600" alt="Your Company">
+        </a>
+      </center>
+    </container>
+    
+    <container>
+      <h1>h1 Heading</h1>
+      <h2>h2 Heading</h2>
+      <p>Paragraph text can be <s>strikethrough</s>, <u>underlined</u>, <small>Small</small>, <strong>Bold</strong>, and <em>Italicized</em>.</p>
+      <p class="text-red text-center-mobile">This text uses a custom style and helper class to make centered only in mobile.</p>
+
+      <p>Text can be <span class="hide-on-mobile">long on desktop and </span>short on mobile.</p>
+
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+
+      <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ol>
+    </container>
+  <container>
+    <row>
+      <column>
+        <img class="img-responsive" src="http://via.placeholder.com/1120x1120" alt="Retina 2x example">
+      </column>
+      <column class="pad-20">
+        <p class="text-small margin-bottom-0">Remember that images in columns are largest at the max mobile breakpoint width due to column stacking.</p>
+      </column>
+      <column>
+        <img class="img-responsive" src="http://via.placeholder.com/1120x1120" alt="Retina 2x example">
+      </column>
+    </row>
+  </container>
+  </body>
+</heml>
